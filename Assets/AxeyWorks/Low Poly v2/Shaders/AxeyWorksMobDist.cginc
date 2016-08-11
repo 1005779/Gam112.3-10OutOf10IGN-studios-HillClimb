@@ -1,5 +1,3 @@
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
-
 void AtsWavingGrassVert (inout appdata_full v) {
 
      float4 _waveXSizeMove = float4(0.048, 0.06, 0.24, 0.096);
@@ -36,6 +34,6 @@ void AtsWavingGrassVert (inout appdata_full v) {
      waveMove.z = dot (s, _waveZSizeMove);
 	 ////////////////////////////////////////////////////////////////////////////////////////////////
 	 // You can change the v.vertex.y to v.vertex.xyz or x or y or z to change what axes are blended.
-     v.vertex.y -= mul ((float3x3)unity_WorldToObject, waveMove).y * 8;
+     v.vertex.y -= mul ((float3x3)_World2Object, waveMove).y * 8;
 	 ////////////////////////////////////////////////////////////////////////////////////////////////
  }
