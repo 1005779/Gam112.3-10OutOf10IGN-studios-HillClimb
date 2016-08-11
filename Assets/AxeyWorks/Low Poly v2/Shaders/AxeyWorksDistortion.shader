@@ -1,3 +1,6 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
 
 Shader "AxeyWorks/Distortion"
 {
@@ -85,7 +88,7 @@ Shader "AxeyWorks/Distortion"
 					vFwdBase o;
 					UNITY_INITIALIZE_OUTPUT(vFwdBase, o);
 
-					float3 v0 = mul((float3x3)_Object2World, v.vertex).xyz;
+					float3 v0 = mul((float3x3)unity_ObjectToWorld, v.vertex).xyz;
 
 					float collPhase = 0.0;
 
@@ -107,9 +110,9 @@ Shader "AxeyWorks/Distortion"
 
 					v0.y += collPhase + phase0 + phase0_1 + phase0_2;
 
-					v.vertex.xyz = mul((float3x3)_World2Object, v0);
+					v.vertex.xyz = mul((float3x3)unity_WorldToObject, v0);
 
-					float4 posWorld = mul(_Object2World, v.vertex);
+					float4 posWorld = mul(unity_ObjectToWorld, v.vertex);
 					#if UNITY_SPECCUBE_BOX_PROJECTION
 						o.posWorld = posWorld;
 					#endif
@@ -183,8 +186,8 @@ Shader "AxeyWorks/Distortion"
 
 					float3 vn = normalize(cross(v1 - v0, v2 - v0));
 
-					float4x4 modelMatrix = _Object2World;
-					float4x4 modelMatrixInverse = _World2Object;
+					float4x4 modelMatrix = unity_ObjectToWorld;
+					float4x4 modelMatrixInverse = unity_WorldToObject;
 
 					float3 normalDirection = normalize(
 						mul(float4(vn, 0.0), modelMatrixInverse).xyz);
@@ -306,7 +309,7 @@ Shader "AxeyWorks/Distortion"
 				
 				v2f vert(appdata_base v)
 				{
-					float3 v0 = mul((float3x3)_Object2World, v.vertex).xyz;
+					float3 v0 = mul((float3x3)unity_ObjectToWorld, v.vertex).xyz;
 
 					float collPhase = 0.0;
 
@@ -328,7 +331,7 @@ Shader "AxeyWorks/Distortion"
 
 					v0.y += collPhase + phase0 + phase0_1 + phase0_2;
 
-					v.vertex.xyz = mul((float3x3)_World2Object, v0);
+					v.vertex.xyz = mul((float3x3)unity_WorldToObject, v0);
 
 					v2f o;
 					o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
