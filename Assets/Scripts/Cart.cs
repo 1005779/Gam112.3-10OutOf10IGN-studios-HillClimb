@@ -15,15 +15,20 @@ public class Cart : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+        Movement();
 	}
 
     public void Movement()
     {
-       if(Input.GetKeyDown("d"))
+       if(Input.GetKey("d"))
         {
-            
+			transform.position += transform.forward * 25 * Time.deltaTime;
         }
+		else if(Input.GetKey("a"))
+		{
+			transform.position += transform.forward * -25 * Time.deltaTime;
+		}
     }
 }
