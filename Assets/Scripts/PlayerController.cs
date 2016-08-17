@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+
     //variables
     public Slider powerbar;
     public float targetspeed;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         Movement();
         targetspeed = powerbar.value *10;
         if (currentspeed > 0.3)
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (powerbar.value < 0.2f)
             {
-                acceleration = 0.005f;
+                acceleration = 0.0010f;
             }
             else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
             {
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (powerbar.value < 0.2f)
             {
-                acceleration = 0.004f;
+                acceleration = 0.008f;
             }
             else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
             {
@@ -82,7 +84,26 @@ public class PlayerController : MonoBehaviour {
         }
         if (terrainimin == 3)
         {
-
+            if (powerbar.value < 0.2f)
+            {
+                acceleration = 0.008f;
+            }
+            else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
+            {
+                acceleration = 0.004f;
+            }
+            else if (powerbar.value >= 0.4f && powerbar.value < 0.6f)
+            {
+                acceleration = 0.008f;
+            }
+            else if (powerbar.value >= 0.6f && powerbar.value < 0.8f)
+            {
+                acceleration = -0.005f;
+            }
+            else if (powerbar.value >= 0.8f && powerbar.value <= 1f)
+            {
+                acceleration = -0.010f;
+            }
         }
         if (currentspeed < targetspeed)
         {
@@ -99,13 +120,21 @@ public class PlayerController : MonoBehaviour {
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "terrain1")
+        if (other.gameObject.name == "Terrain1")
         {
             terrainimin = 1;
         }
-        if (other.gameObject.name == "terrain0")
+        if (other.gameObject.name == "Terrain0")
         {
             terrainimin = 0;
+        }
+        if (other.gameObject.name == "Terrain2")
+        {
+            terrainimin = 2;
+        }
+        if (other.gameObject.name == "Terrain3")
+        {
+            terrainimin = 3;
         }
     }
 }
