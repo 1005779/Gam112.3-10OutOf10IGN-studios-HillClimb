@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour {
     public float acceleration = 0.01f;
     public int terrainimin = 0;
     public GameObject mudeffect;
+    public Text timetodisplay;
+    public GameObject timeobject;
+
+    public float GameTime = 0;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +22,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        GUIUPDATE();
+        GameTime += Time.deltaTime;
         Movement();
         targetspeed = powerbar.value *10;
         if (currentspeed > 0.3)
@@ -29,6 +34,11 @@ public class PlayerController : MonoBehaviour {
         {
             mudeffect.SetActive(false);
         }
+    }
+    public void GUIUPDATE()
+    {
+        timetodisplay = timeobject.GetComponent<Text>();
+        timetodisplay.text = "Time:" + GameTime.ToString("F2");
     }
     public void Movement()
     {
