@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Leaderboard.unity
   - enabled: 1
     path: Assets/Credits.unity
+  - enabled: 1
+    path: Assets/Standard Assets/Environment/UnassignedAssets/1012.unity
