@@ -18,13 +18,13 @@ public class PlayerController : MonoBehaviour {
     public float GameTime = 0;
 	// Use this for initialization
 	void Start () {
-        Time.timeScale = 2;
+        Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         GUIUPDATE();
-        GameTime += Time.deltaTime /2;
+        GameTime += Time.deltaTime;
         Movement();
         targetspeed = powerbar.value *10;
         if (currentspeed > 0.3)
