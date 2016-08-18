@@ -97,6 +97,34 @@ Material:
         second: 2.83
       data:
         first:
+          name: _WaveLength
+        second: 0.37
+      data:
+        first:
+          name: _WaveHeight
+        second: 0.3
+      data:
+        first:
+          name: _WaveSpeed
+        second: 3.41
+      data:
+        first:
+          name: _RandomHeight
+        second: 0.5
+      data:
+        first:
+          name: _RandomSpeed
+        second: 0.5
+      data:
+        first:
+          name: _CollisionWaveLength
+        second: 2
+      data:
+        first:
+          name: _AlphaFactor
+        second: 0.8
+      data:
+        first:
           name: _ZWrite
         second: 1
       data:
@@ -147,34 +175,6 @@ Material:
         first:
           name: _Speed
         second: 13.13
-      data:
-        first:
-          name: _WaveHeight
-        second: 0.3
-      data:
-        first:
-          name: _WaveSpeed
-        second: 3.41
-      data:
-        first:
-          name: _AlphaFactor
-        second: 0.8
-      data:
-        first:
-          name: _WaveLength
-        second: 0.37
-      data:
-        first:
-          name: _RandomHeight
-        second: 0.5
-      data:
-        first:
-          name: _RandomSpeed
-        second: 0.5
-      data:
-        first:
-          name: _CollisionWaveLength
-        second: 2
     m_Colors:
       data:
         first:
@@ -183,11 +183,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.43448275, b: 0, a: 1}
+        second: {r: 1, g: 0.6827586, b: 0, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: 1, g: 0.68275857, b: 0, a: 1}
+        second: {r: 1, g: 0.9724138, b: 0, a: 1}
       data:
         first:
           name: _MainColour
