@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -17,13 +18,13 @@ public class PlayerController : MonoBehaviour {
     public float GameTime = 0;
 	// Use this for initialization
 	void Start () {
-	
+        Time.timeScale = 2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         GUIUPDATE();
-        GameTime += Time.deltaTime;
+        GameTime += Time.deltaTime /2;
         Movement();
         targetspeed = powerbar.value *10;
         if (currentspeed > 0.3)
@@ -146,5 +147,12 @@ public class PlayerController : MonoBehaviour {
         {
             terrainimin = 3;
         }
+        if (other.gameObject.tag == "finish")
+        {
+            PlayerPrefs.SetFloat("finishtime" ,GameTime);
+            SceneManager.LoadScene(2);
+            
+        }
     }
+
 }
