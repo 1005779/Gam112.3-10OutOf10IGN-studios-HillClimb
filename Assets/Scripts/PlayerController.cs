@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject mudeffect;
     public Text timetodisplay;
     public GameObject timeobject;
+    public bool ispaused = false;
+    public GameObject menuGO;
 
     public float GameTime = 0;
 	// Use this for initialization
@@ -152,6 +154,29 @@ public class PlayerController : MonoBehaviour {
             PlayerPrefs.SetFloat("finishtime" ,GameTime);
             SceneManager.LoadScene(2);
             
+        }
+    }
+    public void mainmenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void exitbutton()
+    {
+        Application.Quit();
+    }
+    public void pausebutton()
+    {
+        if (ispaused == false)
+        {
+            menuGO.SetActive(true);
+            Time.timeScale = 0;
+            ispaused = true;
+        }
+        else if (ispaused == true)
+        {
+            menuGO.SetActive(false);
+            Time.timeScale = 1;
+            ispaused = false;
         }
     }
 
