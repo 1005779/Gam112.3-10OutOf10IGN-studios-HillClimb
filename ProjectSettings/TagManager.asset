@@ -6,6 +6,8 @@ TagManager:
   tags:
   - finish
   - ground
+  - zone1
+  - zone2
   layers:
   - Default
   - TransparentFX
