@@ -84,75 +84,75 @@ public class PlayerController : MonoBehaviour {
     {
         if (terrainimin == 0)
         {
-            acceleration = 0.015f;
+            acceleration = Time.deltaTime ;
         }
         if (terrainimin == 1)
         {
             if (powerbar.value < 0.2f)
             {
-                acceleration = 0.0010f;
+                acceleration = Time.deltaTime/2;
             }
             else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
             {
-                acceleration = 0.008f;
+                acceleration = Time.deltaTime/3;
             }
             else if (powerbar.value >= 0.4f && powerbar.value < 0.6f)
             {
-                acceleration = 0.004f;
+                acceleration = Time.deltaTime/4;
             }
             else if (powerbar.value >= 0.6f && powerbar.value < 0.8f)
             {
-                acceleration = -0.006f;
+                acceleration = -Time.deltaTime/2;
             }
             else if (powerbar.value >= 0.8f && powerbar.value <= 1f)
             {
-                acceleration = -0.012f;
+                acceleration = -Time.deltaTime;
             }
         }
         if (terrainimin == 2)
         {
             if (powerbar.value < 0.2f)
             {
-                acceleration = 0.008f;
+                acceleration = Time.deltaTime;
             }
             else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
             {
-                acceleration = 0.004f;
+                acceleration = Time.deltaTime / 1.5f;
             }
             else if (powerbar.value >= 0.4f && powerbar.value < 0.6f)
             {
-                acceleration = 0.002f;
+                acceleration = Time.deltaTime / 2;
             }
             else if (powerbar.value >= 0.6f && powerbar.value < 0.8f)
             {
-                acceleration = -0.01f;
+                acceleration = -Time.deltaTime / 1.5f;
             }
             else if (powerbar.value >= 0.8f && powerbar.value <= 1f)
             {
-                acceleration = -0.018f;
+                acceleration = -Time.deltaTime;
             }
         }
         if (terrainimin == 3)
         {
             if (powerbar.value < 0.2f)
             {
-                acceleration = 0.008f;
+                acceleration = Time.deltaTime;
             }
             else if (powerbar.value >= 0.2f && powerbar.value < 0.4f)
             {
-                acceleration = 0.004f;
+                acceleration = Time.deltaTime / 1.5f;
             }
             else if (powerbar.value >= 0.4f && powerbar.value < 0.6f)
             {
-                acceleration = 0.008f;
+                acceleration = Time.deltaTime / 2;
             }
             else if (powerbar.value >= 0.6f && powerbar.value < 0.8f)
             {
-                acceleration = -0.005f;
+                acceleration = Time.deltaTime / 2.5f;
             }
             else if (powerbar.value >= 0.8f && powerbar.value <= 1f)
             {
-                acceleration = -0.010f;
+                acceleration = -Time.deltaTime *2;
             }
         }
         if (currentspeed < targetspeed)
