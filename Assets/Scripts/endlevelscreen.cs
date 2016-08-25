@@ -20,10 +20,21 @@ public class endlevelscreen : MonoBehaviour {
     public GameObject TextdisplayedGO;
     public Text textdisplayed;
     public bool changesmade = false;
+    public int gamehasran;
 
     // Use this for initialization
     void Start()
     {
+        //initially need to set scores to beat
+        gamehasran = PlayerPrefs.GetInt("gamehasran");
+        if (gamehasran != 2)
+        {
+            PlayerPrefs.SetFloat("bestfinish", 1000);
+            PlayerPrefs.SetFloat("bestzone1", 1000);
+            PlayerPrefs.SetFloat("bestzone2", 1000);
+            PlayerPrefs.SetInt("gamehasran", 2);
+        }
+
         //load the current high scores.
         bestfinish = PlayerPrefs.GetFloat("bestfinish");
         bestzone1 = PlayerPrefs.GetFloat("bestzone1");
